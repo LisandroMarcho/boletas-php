@@ -14,7 +14,7 @@
 			$queryInsert = "INSERT INTO usuarios (nom, pass) VALUES ('$usuario', '$hash')";
 
 			if($consulta = mysqli_query($link, $queryInsert)){
-				echo "<script>alert('Se creó el usuario'); window.location = '';</script>";	
+				echo "<script>alert('Se creó el usuario'); window.location = './login.php';</script>";	
 			}
 		}else{
 			echo "<script>alert('Ya hay un usuario con ese nombre');</script>";

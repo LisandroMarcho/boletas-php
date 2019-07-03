@@ -22,10 +22,16 @@
 					$_SESSION["userId"] = $data["idusuario"];
 					echo "<script>alert('Iniciaste sesion correctamente!'); window.location = 'index.php';</script>";
 				}else{
-				echo "<script>alert('Contraseña incorrecta');";
+					echo "<script>alert('Contraseña incorrecta');</script>";
 				}
 
-			}else{
+			}else if(mysqli_num_rows($consulta)>1){
+				echo "<script>alert('Hay más de una cuenta con el mismo nombre de usuario, por favor comunicarse con el administrador.');</script>";
+			}
+			else if(mysqli_num_rows($consulta)==0){
+				echo "<script>alert('No existe ninguna cuenta de usuario con ese nombre');</script>";
+			}
+			else{
 				echo "<script>alert('Error en el inicio de sesion')</script>";
 			}
 			
